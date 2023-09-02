@@ -7,7 +7,8 @@
     "dev": "remix dev --manual -c \"npm run start\"",
     "start": "wrangler pages dev --compatibility-date=2023-06-21 ./public",
     "typecheck": "tsc",
-    "pages:deploy": "pnpm run build && wrangler pages deploy ./public"
+    "pages:deploy": "pnpm run build && wrangler pages deploy ./public",
+    "ddl:dev": "wrangler d1 execute DB --local --file=./schemas/schema.sql"
   },
   "dependencies": {
     "@remix-run/cloudflare": "^1.19.3",
