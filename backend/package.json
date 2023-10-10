@@ -3,7 +3,11 @@
   "type": "module",
   "scripts": {
     "start": "wrangler dev src/index.ts",
-    "deploy": "wrangler deploy --minify src/index.ts"
+    "deploy": "wrangler deploy --minify src/index.ts",
+    "ci": "bun biome ci ./app --config-path=. --colors=off",
+    "check": "bun biome check ./app --config-path=.",
+    "lint": "bun biome lint ./app --config-path=.",
+    "fmt": "bun biome format ./app --config-path=."
   },
   "devDependencies": {
     "@biomejs/biome": "^1.2.2",
