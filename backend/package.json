@@ -2,7 +2,9 @@
   "name": "backend",
   "type": "module",
   "devDependencies": {
-    "bun-types": "latest"
+    "@cloudflare/workers-types": "^4.20231002.0",
+    "bun-types": "latest",
+    "wrangler": "^3.11.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
