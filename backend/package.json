@@ -1,6 +1,10 @@
 {
   "name": "backend",
   "type": "module",
+  "scripts": {
+    "start": "wrangler dev src/index.ts",
+    "deploy": "wrangler deploy --minify src/index.ts"
+  },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20231002.0",
     "bun-types": "latest",
