@@ -1,4 +1,5 @@
-import type { V2_MetaFunction } from "@remix-run/cloudflare";
+import { json, type LoaderArgs, type V2_MetaFunction } from "@remix-run/cloudflare";
+import { useLoaderData } from "@remix-run/react";
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -7,35 +8,35 @@ export const meta: V2_MetaFunction = () => {
   ];
 };
 
+type Role = {
+  id: string;
+  name: string
+}
+
+const loader = async ({context}: LoaderArgs) => {
+  const db = context.DB as D1Database;
+  
+  const { results } = await db.prepare("SELECT id, name FROM roles;").all<Role>();
+
+  return json({
+    roles: results ?? []
+  });
+}
+
 export default function Index() {
+  
+  const { roles } = useLoaderData<typeof loader>();
+
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
+    <div>
+      <h1>Roles</h1>
       <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
+        {roles.map(role => (
+          <li key={role.id}>{role.name}</li>
+        ))}
       </ul>
     </div>
   );
 }
+
+export { loader };
