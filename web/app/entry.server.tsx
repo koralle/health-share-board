@@ -16,12 +16,13 @@ export default async function handleRequest(
   remixContext: EntryContext,
   loadContext: AppLoadContext,
 ) {
+  let statusCode = responseStatusCode
   const body = await renderToReadableStream(<RemixServer context={remixContext} url={request.url} />, {
     signal: request.signal,
     onError(error: unknown) {
       // Log streaming rendering errors from inside the shell
       console.error(error)
-      responseStatusCode = 500
+      statusCode = 500
     },
   })
 
@@ -32,6 +33,6 @@ export default async function handleRequest(
   responseHeaders.set("Content-Type", "text/html")
   return new Response(body, {
     headers: responseHeaders,
-    status: responseStatusCode,
+    status: statusCode,
   })
 }
