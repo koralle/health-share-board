@@ -1,2 +1,7 @@
 name = "health-share-board-backend"
 compatibility_date = "2023-10-02"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "health-share-board-db"
+database_id = "28ecef95-5269-444a-b6ce-0266d33e8380"
