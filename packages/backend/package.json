@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "type": "module",
+  "scripts": {
+    "start": "wrangler dev src/index.ts",
+    "deploy": "wrangler deploy --minify src/index.ts",
+    "ci": "bun biome ci ./src --config-path=. --colors=off",
+    "check": "bun biome check ./src --config-path=.",
+    "lint": "bun biome lint ./src --config-path=.",
+    "fmt": "bun biome format ./src --config-path=."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.2.2",
+    "@cloudflare/workers-types": "^4.20231002.0",
+    "bun-types": "latest",
+    "wrangler": "^3.11.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "hono": "^3.7.5"
+  }
+}
