@@ -19,6 +19,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "hono": "^3.7.5"
+    "hono": "^3.7.5",
+    "shared": "workspaces:*"
   }
 }
