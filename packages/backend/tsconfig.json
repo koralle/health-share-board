@@ -1,4 +1,7 @@
 {
+  "include": [
+    "./src/**/*.ts",
+  ],
   "compilerOptions": {
     "lib": ["ESNext"],
     "module": "esnext",
@@ -17,6 +20,12 @@
     "allowJs": true,
     "types": [
       "bun-types" // add Bun global
-    ]
-  }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": [
+        "../shared/src/*"
+      ]
+    }
+  },
 }
