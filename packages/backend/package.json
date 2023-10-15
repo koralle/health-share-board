@@ -7,12 +7,16 @@
     "ci": "bun biome ci ./src --config-path=. --colors=off",
     "check": "bun biome check ./src --config-path=.",
     "lint": "bun biome lint ./src --config-path=.",
-    "fmt": "bun biome format ./src --config-path=."
+    "fmt": "bun biome format ./src --config-path=.",
+    "generate": "drizzle-kit generate:sqlite --schema=src/schema.ts",
+    "up": "drizzle-kit up:sqlite --schema=src/schema.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.2.2",
     "@cloudflare/workers-types": "^4.20231002.0",
     "bun-types": "latest",
+    "drizzle-kit": "^0.19.13",
+    "drizzle-orm": "^0.28.6",
     "wrangler": "^3.11.0"
   },
   "peerDependencies": {
@@ -21,7 +25,6 @@
   "dependencies": {
     "@hono/graphql-server": "^0.4.0",
     "@pothos/core": "^3.38.0",
-    "drizzle-orm": "^0.28.6",
     "graphql": "^16.8.1",
     "hono": "^3.7.5"
   }
