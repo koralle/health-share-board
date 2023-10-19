@@ -26,6 +26,7 @@
     "@hono/graphql-server": "^0.4.1",
     "@pothos/core": "^3.38.0",
     "graphql": "^16.8.1",
-    "hono": "^3.7.5"
+    "hono": "^3.7.5",
+    "shared": "workspace:*"
   }
 }
