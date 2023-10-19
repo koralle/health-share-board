@@ -1,14 +1,13 @@
-import { GraphQLContext } from "../../../context";
+import { GraphQLContext } from "@/context"
+import { User, users } from "@/schema"
 import { drizzle } from "drizzle-orm/d1"
-import { User, users } from "../../../schema";
-import { EndUserError } from "@shared/utils/errors";
+import { EndUserError } from "shared/src/utils/errors"
 
 const fetchEndAllUsers = async (ctx?: GraphQLContext) => {
-
   const db = drizzle(ctx!.env.DB)
 
   let endUsers: User[] = []
-  let errors: EndUserError[] = []
+  const errors: EndUserError[] = []
 
   try {
     const result = await db.select().from(users).all()
@@ -21,7 +20,7 @@ const fetchEndAllUsers = async (ctx?: GraphQLContext) => {
 
   return {
     errors,
-    endUsers
+    endUsers,
   }
 }
 

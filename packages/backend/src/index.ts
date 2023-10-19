@@ -1,9 +1,9 @@
-import { Hono } from "hono"
+import { schema } from "@/graphql/schema"
 import { graphqlServer } from "@hono/graphql-server"
-import { schema } from "./graphql/schema"
+import { Hono } from "hono"
 
-import { GraphQLContextEnv, GraphQLContext } from "./context"
-import { rootResolver } from "./resolvers"
+import { GraphQLContext, GraphQLContextEnv } from "@/context"
+import { rootResolver } from "@/resolvers"
 
 const app = new Hono<GraphQLContextEnv>()
 
