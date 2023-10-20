@@ -1,12 +1,10 @@
-import { GraphQLContext } from "@/context"
+import { GraphQLContext, GraphQLContextEnv } from "@/context"
 import { hello } from "@/resolvers/features/hello"
-import { fetchEndAllUsers } from "@/resolvers/features/users"
+import { fetchEndAllUsers, fetchEndUserById, registerEndUserResolver } from "@/resolvers/features/users"
+import { RootResolver } from "@hono/graphql-server"
 
-const rootResolver = (ctx?: GraphQLContext) => {
-  return {
-    hello: hello(),
-    fetchAllEndUsers: fetchEndAllUsers(ctx),
-  }
-}
+type AppRootResolver = RootResolver<GraphQLContextEnv, "/graphql", {}>
+
+const rootResolver: AppRootResolver = (ctx?: GraphQLContext) => (ctx)
 
 export { rootResolver }
