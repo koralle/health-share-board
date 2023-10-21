@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm"
-import { sqliteTable, text, real, index } from "drizzle-orm/sqlite-core"
+import { index, real, sqliteTable, text } from "drizzle-orm/sqlite-core"
 
 const users = sqliteTable("users", {
   id: text("id").notNull().primaryKey(),
@@ -28,9 +28,13 @@ const bodyTemperatures = sqliteTable(
   },
 )
 
-type User = typeof users.$inferSelect
-type InsertUser = typeof users.$inferInsert
+export namespace D1Repository {
+  export type User = typeof users.$inferSelect
+}
 
+
+type User = typeof users.$inferSelect
+type InsertUser = Omit<typeof users.$inferInsert, "createdAt" | "updatedAt">
 type BodyTemperatures = typeof bodyTemperatures.$inferSelect
 type InsertBodyTemperatures = typeof bodyTemperatures.$inferInsert
 
