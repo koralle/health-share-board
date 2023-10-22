@@ -17,6 +17,7 @@
     "bun-types": "latest",
     "drizzle-kit": "^0.19.13",
     "drizzle-orm": "^0.28.6",
+    "vitest": "^0.34.6",
     "wrangler": "^3.11.0"
   },
   "peerDependencies": {
