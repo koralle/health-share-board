@@ -1,4 +1,4 @@
-import { CreateValueObjectPayload, ValueObject } from "@/value-objects/value-objects"
+import { CreateValueObjectPayload, ValueObject } from "@/value-objects/value-object"
 import dayjs from "dayjs"
 
 class DateTimeError extends Error {

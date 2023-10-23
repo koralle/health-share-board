@@ -36,6 +36,10 @@ class UserEntity extends Entity<"User"> {
     return false
   }
 
+  public isIdentical(other: Entity<"User">): boolean {
+    return this.id.isEqual(other.id)
+  }
+
   static create(name: string, profileImageUrl?: string): CreateEntityPayload<UserEntity, UserEntityError> {
     const [_id, idErr] = ID.create()
     if (idErr) {

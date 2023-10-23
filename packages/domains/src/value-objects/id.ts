@@ -1,5 +1,5 @@
 import { NIL, v4 as uuidv4, validate as validateAsUuid } from "uuid"
-import { CreateValueObjectPayload, ValueObject } from "./value-objects"
+import { CreateValueObjectPayload, ValueObject } from "./value-object"
 
 class IDError extends Error {
   constructor(message: string) {
@@ -28,7 +28,7 @@ class ID extends ValueObject<"ID", string, IDError> {
     return null
   }
 
-  protected isEqual(rhs: ID): boolean {
+  public isEqual(rhs: ID): boolean {
     return this.value === rhs.value
   }
 

@@ -10,10 +10,7 @@ abstract class Entity<TSymbol extends string = string> {
     this.id = _id
   }
 
-  public isIdentical(other: Entity<TSymbol>): boolean {
-    return this.id.isEqual(other.id)
-  }
-
+  abstract isIdentical(other: Entity<TSymbol>): boolean
   abstract isEqual(other: Entity<TSymbol>): boolean
 }
 
