@@ -32,7 +32,6 @@ export namespace D1Repository {
   export type User = typeof users.$inferSelect
 }
 
-
 type User = typeof users.$inferSelect
 type InsertUser = Omit<typeof users.$inferInsert, "createdAt" | "updatedAt">
 type BodyTemperatures = typeof bodyTemperatures.$inferSelect
