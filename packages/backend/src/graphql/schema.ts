@@ -10,6 +10,7 @@ import {
   GraphQLObjectType,
   GraphQLSchema,
   GraphQLString,
+  buildSchema,
 } from "graphql"
 import type { GraphQLFieldResolver } from "graphql"
 import { EndUserError } from "shared/src/utils/errors"
@@ -66,7 +67,7 @@ type BaseInput<T extends {} = {}> = {
   input: T
 }
 
-type RegisterEndUserInput = BaseInput<{ id: string, name: string, profileImageUrl: string | null }>
+type RegisterEndUserInput = BaseInput<{ id: string; name: string; profileImageUrl: string | null }>
 
 type RegisterEndUserPayload = Promise<{
   errors: EndUserError[]
