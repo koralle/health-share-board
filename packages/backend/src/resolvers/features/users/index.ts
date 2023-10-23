@@ -28,7 +28,7 @@ const fetchEndAllUsers = async (ctx?: GraphQLContext) => {
 
 const fetchEndUserById = async (ctx?: GraphQLContext) => {
   const db = drizzle(ctx!.env.DB)
-  const errors: EndUserError[]  = []
+  const errors: EndUserError[] = []
 
   let endUsers: User[] = []
   try {
@@ -43,7 +43,7 @@ const fetchEndUserById = async (ctx?: GraphQLContext) => {
 
   return {
     errors,
-    endUsers
+    endUsers,
   }
 }
 
@@ -58,9 +58,8 @@ const registerEndUserResolver = async (ctx?: GraphQLContext) => {
       id: "test",
       name: "test",
       profile_image_url: "https://example.com/profile/test",
-    }
+    },
   }
-
 }
 
 export { fetchEndAllUsers, fetchEndUserById, registerEndUserResolver }
