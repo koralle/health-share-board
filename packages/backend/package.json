@@ -30,7 +30,6 @@
     "dayjs": "^1.11.10",
     "graphql": "^16.8.1",
     "hono": "^3.7.5",
-    "shared": "workspace:*",
     "uuid": "^9.0.1"
   }
 }

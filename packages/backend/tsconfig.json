@@ -1,6 +1,6 @@
 {
   "include": [
-    "./src/**/*.ts",
+    "./src/**/*.ts", "../domains/src/entities/entity.ts", "../domains/src/entities/measurement-record.ts", "../domains/src/entities/user.ts", "../domains/src/value-objects/body-temperture.ts", "../domains/src/value-objects/date-time.ts", "../domains/src/value-objects/id.ts", "../domains/src/value-objects/prorile-image-url.ts", "../domains/src/value-objects/user-name.ts", "../domains/src/value-objects/value-objects.ts",
   ],
   "compilerOptions": {
     "lib": ["ESNext"],

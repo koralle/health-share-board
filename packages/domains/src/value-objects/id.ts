@@ -9,7 +9,6 @@ class IDError extends Error {
 }
 
 class ID extends ValueObject<"ID", string, IDError> {
-
   static readonly EMPTY = new ID(NIL)
 
   private constructor(_value: string) {
@@ -17,7 +16,7 @@ class ID extends ValueObject<"ID", string, IDError> {
   }
 
   protected validate(_value: string): IDError | null {
-    if(!_value) {
+    if (!_value) {
       return new IDError("ID must not be empty.")
     }
 

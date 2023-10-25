@@ -1,7 +1,7 @@
 import { CreateEntityPayload, Entity } from "@/entities/entity"
-import { BodyTemperature } from "@/value-objects/body-temperture"
-import { DateTime } from "@/value-objects/date-time"
-import { ID } from "@/value-objects/id"
+import { BodyTemperature } from "@/value-objects"
+import { DateTime } from "@/value-objects"
+import { ID } from "@/value-objects"
 
 class MeasurementRecordError extends Error {
   constructor(readonly message: string) {
@@ -15,7 +15,12 @@ class MeasurementRecordEntity extends Entity<"MeasurementRecord"> {
   readonly userId: ID
   readonly measuredAt: DateTime
 
-  constructor(protected readonly _id: ID, protected readonly _userId: ID, protected readonly _bodyTemperature: BodyTemperature, protected readonly _measuredAt: DateTime) {
+  constructor(
+    protected readonly _id: ID,
+    protected readonly _userId: ID,
+    protected readonly _bodyTemperature: BodyTemperature,
+    protected readonly _measuredAt: DateTime,
+  ) {
     super(_id)
     this.userId = _userId
     this.bodyTemperature = _bodyTemperature
@@ -26,7 +31,15 @@ class MeasurementRecordEntity extends Entity<"MeasurementRecord"> {
     return this.id.isEqual(other.id) && this.bodyTemperature === other.bodyTemperature
   }
 
-  static create(userId: string, bodyTemperature: number, measuredAt: string): CreateEntityPayload<MeasurementRecordEntity, MeasurementRecordError> {
+  public isIdentical(other: MeasurementRecordEntity): boolean {
+    return this.id.isEqual(other.id)
+  }
+
+  static create(
+    userId: string,
+    bodyTemperature: number,
+    measuredAt: string,
+  ): CreateEntityPayload<MeasurementRecordEntity, MeasurementRecordError> {
     const [_id, idErr] = ID.create()
     if (idErr) {
       return [null, new MeasurementRecordError(idErr.message)]
@@ -50,7 +63,12 @@ class MeasurementRecordEntity extends Entity<"MeasurementRecord"> {
     return [new MeasurementRecordEntity(_id, _userId, _bodyTemperature, _measuredAt), null]
   }
 
-  static createWithId(id: string, userId: string, bodyTemperature: number, measuredAt: string): CreateEntityPayload<MeasurementRecordEntity, MeasurementRecordError> {
+  static createWithId(
+    id: string,
+    userId: string,
+    bodyTemperature: number,
+    measuredAt: string,
+  ): CreateEntityPayload<MeasurementRecordEntity, MeasurementRecordError> {
     const [_id, idErr] = ID.createFromString(id)
     if (idErr) {
       return [null, new MeasurementRecordError(idErr.message)]

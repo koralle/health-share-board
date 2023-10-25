@@ -1,7 +1,7 @@
-import { ID } from "@/value-objects/id";
-import { ProfileImageUrl } from "@/value-objects/prorile-image-url";
-import { UserName } from "@/value-objects/user-name";
-import { CreateEntityPayload, Entity } from "./entity";
+import { CreateEntityPayload, Entity } from "@/entities/entity"
+import { ID } from "@/value-objects/id"
+import { ProfileImageUrl } from "@/value-objects/prorile-image-url"
+import { UserName } from "@/value-objects/user-name"
 
 class UserEntityError extends Error {
   constructor(readonly message: string) {
@@ -26,7 +26,11 @@ class UserEntity extends Entity<"User"> {
 
   public isEqual(other: UserEntity): boolean {
     if (this.profileImageUrl && other.profileImageUrl) {
-      return this.id.isEqual(other.id) && this.name.isEqual(other.name) && this.profileImageUrl.isEqual(other.profileImageUrl)
+      return (
+        this.id.isEqual(other.id) &&
+        this.name.isEqual(other.name) &&
+        this.profileImageUrl.isEqual(other.profileImageUrl)
+      )
     }
 
     if (!this.profileImageUrl && !other.profileImageUrl) {

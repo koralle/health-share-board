@@ -17,6 +17,15 @@
     "allowJs": true,
     "types": [
       "bun-types" // add Bun global
-    ]
-  }
+    ],
+    "rootDir": "./src"
+  },
+  "references": [
+    {
+      "path": "./packages/domains"
+    },
+    {
+      "path": "./packages/usecases"
+    }
+  ]
 }

@@ -67,7 +67,7 @@ type BaseInput<T extends {} = {}> = {
   input: T
 }
 
-type RegisterEndUserInput = BaseInput<{ id: string; name: string; profileImageUrl: string | null }>
+type RegisterEndUserInput = BaseInput<{ id: string, name: string, profileImageUrl: string | null }>
 
 type RegisterEndUserPayload = Promise<{
   errors: EndUserError[]
