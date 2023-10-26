@@ -6,7 +6,6 @@
   },
   "files": [],
   "references": [
-    { "path": "../usecases" },
-    { "path": "../infrastructures" }
+    { "path": "../domains" }
   ]
 }

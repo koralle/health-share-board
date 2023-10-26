@@ -1,0 +1,19 @@
+{
+  "name": "usecases",
+  "type": "module",
+  "scripts": {
+    "ci": "bun biome ci ./src --config-path=../../ --colors=off",
+    "check": "bun biome check ./src --config-path=../../",
+    "lint": "bun biome lint ./src --config-path=../../",
+    "fmt": "bun biome format ./src --config-path=../../"
+  },
+  "dependencies": {
+    "domains": "workspace:*"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
