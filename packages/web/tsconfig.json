@@ -9,7 +9,8 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./app/*"]
+      "@/*": ["./app/*"],
+      "@tests/*": ["./tests/*"]
     },
   },
   "files": [],
