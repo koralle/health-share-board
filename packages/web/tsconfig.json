@@ -1,5 +1,4 @@
 {
-  "extends": "../../tsconfig.json",
   "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
   "compilerOptions": {
     "composite": true,
@@ -13,6 +12,18 @@
       "@/*": ["./app/*"],
       "@tests/*": ["./tests/*"]
     },
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "strict": true,
+    "downlevelIteration": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
   },
   "files": [],
   "references": [
