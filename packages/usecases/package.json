@@ -7,6 +7,9 @@
     "lint": "bun biome lint ./src --config-path=../../",
     "fmt": "bun biome format ./src --config-path=../../"
   },
+  "dependencies": {
+    "domains": "workspace:*"
+  },
   "devDependencies": {
     "bun-types": "latest"
   },
