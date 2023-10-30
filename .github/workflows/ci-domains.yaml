@@ -28,3 +28,7 @@ jobs:
       - name: Lint
         working-directory: ./packages/domains
         run: bun run ci
+
+      - name: UnitTest
+        working-directory: ./packages/domains
+        run: bun vitest
