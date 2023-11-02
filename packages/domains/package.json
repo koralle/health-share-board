@@ -8,6 +8,7 @@
     "fmt": "bun biome format ./src --config-path=../../"
   },
   "devDependencies": {
+    "@types/uuid": "^9.0.6",
     "bun-types": "latest"
   },
   "peerDependencies": {
@@ -15,6 +16,7 @@
   },
   "dependencies": {
     "dayjs": "^1.11.10",
-    "email-validator": "^2.0.4"
+    "email-validator": "^2.0.4",
+    "uuid": "^9.0.1"
   }
 }
